@@ -7,11 +7,14 @@
 
 # Streamlit -> Apenas com python criar frontend e backend
 # IA utilizada: OpenAI
-
+import os
 import streamlit as st
 import google.generativeai as genai
+from dotenv import load_dotenv
 
-genai.configure(api_key="AIzaSyAaMoYE6KBna9imXnO1D3ETmVw5pYBqTGs")
+load_dotenv()
+
+genai.configure(api_key=os.getenv("API_KEY"))
 modelo_ia = genai.GenerativeModel("gemini-2.5-flash")
 
 st.title("Chatbot com IA")
